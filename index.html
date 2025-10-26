@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Nitin Kumar — Creative Designer & Video Editor based in Greater Noida. UI/UX, Graphic Design, Motion Design and Video Editing." />
+    <title>Nitin Kumar - Creative Professional</title>
+    <style>
+        /* Basic reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* Accessibility: respect reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; scroll-behavior: auto; }
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            background: #000;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            z-index: 2000;
+        }
+        .skip-link:focus { left: 1rem; top: 1rem; border-radius: 4px; }
+
+        /* Navigation */
+        header { position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav {
+            background: #fff;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+        nav.scrolled { padding: 1rem 3rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+        nav a {
+            color: #000; text-decoration: none; font-weight: 400; font-size: 0.9rem;
+            letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease; position: relative;
+        }
+        nav a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 1px; background: #000;
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after, nav a:focus::after { width: 100%; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #fff;
+            position: relative;
+            padding-top: 5.5rem; /* reserve space for fixed nav */
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f5f5" width="1200" height="800"/></svg>');
+            background-size: cover; background-position: center; z-index: 0;
+        }
+        .hero-content { z-index: 1; opacity: 0; animation: fadeInUp 1.2s ease forwards; max-width: 1100px; padding: 2rem; }
+        .hero h1 { font-size: clamp(2rem, 6vw, 4.5rem); font-weight: 300; margin-bottom: 1rem; letter-spacing: 3px; color: #000; }
+        .hero p { font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: #666; font-weight: 300; margin-bottom: 0.5rem; }
+        .hero .location { font-size: 0.9rem; color: #999; letter-spacing: 1px; }
+
+        .scroll-indicator {
+            position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #666;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: translateY(0); } }
+        @keyframes bounce { 0%,100%{ transform: translateX(-50%) translateY(0);} 50%{ transform: translateX(-50%) translateY(-10px);} }
+
+        /* Sections */
+        main { max-width: 1400px; margin: 0 auto; padding-top: 2rem; }
+        section {
+            padding: 120px 60px;
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        section.visible { opacity: 1; transform: translateY(0); }
+        section h2 {
+            font-size: 2.5rem; margin-bottom: 3rem; text-align: center; color: #000; font-weight: 300;
+            letter-spacing: 3px; text-transform: uppercase;
+        }
+
+        /* About */
+        .about-content { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: center; }
+        .profile-img {
+            width: 100%; height: 500px; background: #f5f5f5; position: relative; overflow: hidden; transition: transform 0.6s ease;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .profile-img:hover { transform: scale(1.02); }
+        .profile-img::before {
+            content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition:left 0.6s ease;
+        }
+        .profile-img:hover::before { left:100%; }
+        .profile-placeholder { font-size: 6rem; color: #ccc; user-select:none; }
+
+        .about-text p { font-size: 1rem; line-height: 2; color: #666; margin-bottom: 1.5rem; font-weight: 300; }
+        .info-highlight { background: #f5f5f5; padding: 1.5rem; margin-top: 2rem; border-left: 3px solid #000; }
+        .info-highlight p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .info-highlight strong { color: #000; font-weight: 500; }
+
+        /* Skills */
+        #skills { background: #f5f5f5; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 0; }
+        .skill-card {
+            background: #fff; padding: 3rem; border: 1px solid #e5e5e5; transition: all 0.4s ease; position: relative; overflow: hidden;
+        }
+        .skill-card::before {
+            content: ''; position: absolute; top:0; left:-100%; width:100%; height:100%; background:#000; transition:left 0.4s ease; z-index:0;
+        }
+        .skill-card:hover::before { left:0; }
+        .skill-card:hover { border-color:#000; }
+        .skill-card h3, .skill-card p { position: relative; z-index: 1; transition: color 0.4s ease; }
+        .skill-card:hover h3, .skill-card:hover p { color: #fff; }
+        .skill-card h3 { font-size: 1.2rem; margin-bottom: 1rem; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+        .skill-card p { color:#666; line-height:1.8; font-weight:300; }
+
+        /* Experience */
+        .experience-content { max-width: 900px; margin: 0 auto; text-align: center; }
+        .experience-highlight { background:#fff; padding:3rem; border:1px solid #e5e5e5; margin-top:2rem; }
+        .experience-highlight h3 { font-size:3rem; font-weight:300; color:#000; margin-bottom:1rem; }
+        .experience-highlight p { font-size:1.1rem; color:#666; letter-spacing:1px; }
+
+        /* Projects */
+        .projects-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(400px,1fr)); gap:2rem; }
+        .project-card { position:relative; overflow:hidden; cursor:pointer; background:#f5f5f5; }
+        .project-img { width:100%; height:500px; background:#e5e5e5; transition: transform 0.6s ease; display:flex; align-items:center; justify-content:center; font-size:4rem; color:#ccc; }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-info { padding:2rem; background:#fff; border-top:1px solid #e5e5e5; }
+        .project-info h3 { font-size:1.2rem; margin-bottom:0.8rem; font-weight:400; letter-spacing:1px; text-transform:uppercase; }
+        .project-info p { color:#666; line-height:1.8; font-weight:300; }
+
+        /* Contact */
+        #contact { background:#f5f5f5; }
+        .contact-form { max-width:700px; margin:0 auto; }
+        .contact-info { text-align:center; margin-bottom:3rem; padding:2rem; background:#fff; border:1px solid #e5e5e5; }
+        .contact-info p { font-size:1rem; color:#666; margin-bottom:0.8rem; letter-spacing:1px; }
+        .contact-info a { color:#000; text-decoration:none; transition: color 0.3s ease; }
+        .contact-info a:hover, .contact-info a:focus { color:#666; }
+
+        .form-group { margin-bottom:2rem; }
+        .form-group label { display:block; margin-bottom:0.8rem; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase; font-weight:400; }
+        .form-group input, .form-group textarea {
+            width:100%; padding:1rem; border:none; border-bottom:1px solid #e5e5e5; background:transparent; font-size:1rem; font-family:inherit; transition:border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline:none; border-bottom-color:#000; }
+        .form-group textarea { resize:vertical; min-height:150px; }
+
+        .submit-btn {
+            background:#000; color:#fff; padding:1.2rem 4rem; border:none; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition: all 0.3s ease; font-weight:400;
+        }
+        .submit-btn:hover, .submit-btn:focus { background:#333; transform: translateY(-2px); outline: none; }
+
+        .form-status { margin-top:1rem; font-size:0.95rem; color: #0a0; min-height:1.2rem; }
+
+        /* Footer */
+        footer { background:#000; color:#fff; text-align:center; padding:3rem; font-size:0.85rem; letter-spacing:1px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-content { grid-template-columns: 1fr; }
+            nav ul { gap: 1.5rem; }
+            section { padding: 80px 30px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            nav { padding: 1.5rem 1.5rem; }
+        }
+        @media (max-width: 600px) {
+            nav a { font-size: 0.75rem; }
+            section { padding: 60px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+        <!-- Navigation -->
+        <nav id="navbar" aria-label="Primary navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main id="main">
+        <section class="hero" id="home" aria-labelledby="hero-heading">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="hero-content">
+                <h1 id="hero-heading">NITIN KUMAR</h1>
+                <p>Creative Designer & Video Editor</p>
+                <p class="location">Greater Noida, India</p>
+            </div>
+            <div class="scroll-indicator" aria-hidden="true">Scroll Down</div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" aria-labelledby="about-heading">
+            <h2 id="about-heading">About</h2>
+            <div class="about-content">
+                <div class="profile-img" role="img" aria-label="Profile placeholder">
+                    <div class="profile-placeholder" aria-hidden="true">👤</div>
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm Nitin Kumar, a 19-year-old creative professional based in Greater Noida with a passion
+                        for visual storytelling and design excellence. With 2 years of hands-on experience, I've
+                        developed expertise across multiple creative disciplines.
+                    </p>
+                    <p>
+                        My journey in the creative industry has equipped me with comprehensive skills in graphics,
+                        UI/UX design, motion design, and video editing. I bring a unique blend of technical
+                        proficiency and artistic vision to every project, ensuring that each creation is not just
+                        visually stunning but also functionally effective.
+                    </p>
+                    <p>
+                        From crafting intuitive user interfaces to color grading cinematic footage, I approach
+                        each project with dedication and attention to detail. My goal is to create work that
+                        resonates with audiences and delivers impactful results.
+                    </p>
+                    <div class="info-highlight">
+                        <p><strong>Age:</strong> 19 Years</p>
+                        <p><strong>Location:</strong> Greater Noida, India</p>
+                        <p><strong>Experience:</strong> 2 Years</p>
+                        <p><strong>Email:</strong> <a href="mailto:nitineditor232@gmail.com">nitineditor232@gmail.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+919411906171">+91 9411906171</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Expertise</h2>
+            <div class="skills-grid" role="list">
+                <div class="skill-card" role="listitem">
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive, user-centered interfaces with industry-level design standards and modern aesthetics.</p>
+                </div>
+                <div class="skill-card" role="listitem">
+                    <h3>Graphic Design</h3>
+                    <p>Crafting compelling visual identities, branding materials, and creative assets with professional polish.</p>
+                </div>
+                <div class="skill-card" role="listitem">
+                    <h3>Motion Design</h3>
+                    <p>Bringing designs to life with dynamic animations and engaging motion graphics that captivate audiences.</p>
+                </div>
+                <div class="skill-card" role="listitem">
+                    <h3>Video Editing</h3>
+                    <p>Expert video editing with advanced techniques including color grading and seamless post-production workflows.</p>
+                </div>
+                <div class="skill-card" role="listitem">
+                    <h3>Colour Grading</h3>
+                    <p>Professional color correction and grading to achieve cinematic looks and consistent visual storytelling.</p>
+                </div>
+                <div class="skill-card" role="listitem">
+                    <h3>Web Editing</h3>
+                    <p>Creating and optimizing digital content for web platforms with attention to performance and user experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Experience</h2>
+            <div class="experience-content">
+                <p style="font-size:1.1rem; color:#666; line-height:2;">
+                    With 2 years of professional experience in the creative industry, I've worked on diverse
+                    projects spanning UI/UX design, graphic design, motion graphics, and video editing. My journey
+                    has allowed me to collaborate with clients and deliver high-quality creative solutions that
+                    meet industry standards.
+                </p>
+                <div class="experience-highlight" aria-hidden="true">
+                    <h3>2+</h3>
+                    <p>YEARS OF CREATIVE EXPERIENCE</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Selected Work</h2>
+            <div class="projects-grid" role="list">
+                <div class="project-card" role="listitem" tabindex="0" aria-label="UI/UX Project">
+                    <div class="project-img" aria-hidden="true">🎨</div>
+                    <div class="project-info">
+                        <h3>UI/UX Project</h3>
+                        <p>Comprehensive user interface design with focus on user experience and modern design principles.</p>
+                    </div>
+                </div>
+                <div class="project-card" role="listitem" tabindex="0" aria-label="Video Production">
+                    <div class="project-img" aria-hidden="true">🎬</div>
+                    <div class="project-info">
+                        <h3>Video Production</h3>
+                        <p>Professional video editing with advanced color grading and motion graphics integration.</p>
+                    </div>
+                </div>
+                <div class="project-card" role="listitem" tabindex="0" aria-label="Motion Design">
+                    <div class="project-img" aria-hidden="true">✨</div>
+                    <div class="project-info">
+                        <h3>Motion Design</h3>
+                        <p>Dynamic motion graphics and animations that bring concepts to life with creative flair.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Get In Touch</h2>
+            <div class="contact-info">
+                <p><strong>EMAIL:</strong> <a href="mailto:nitineditor232@gmail.com">nitineditor232@gmail.com</a></p>
+                <p><strong>PHONE:</strong> <a href="tel:+919411906171">+91 9411906171</a></p>
+                <p><strong>LOCATION:</strong> Greater Noida, India</p>
+            </div>
+
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required aria-required="true"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+                <div class="form-status" id="formStatus" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nitin Kumar. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling fallback for browsers that don't support CSS scroll-behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetSelector = this.getAttribute('href');
+                if (!targetSelector || targetSelector === '#') return;
+                const target = document.querySelector(targetSelector);
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // move focus for accessibility
+                target.setAttribute('tabindex', '-1');
+                target.focus({ preventScroll: true });
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const onScroll = () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        // Improved form behaviour: inline success message instead of alert
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Basic client-side validation (HTML already covers required fields)
+            const name = form.name.value.trim(), email = form.email.value.trim(), message = form.message.value.trim();
+            if (!name || !email || !message) {
+                status.textContent = 'Please fill all required fields.';
+                status.style.color = '#b00';
+                return;
+            }
+            // Placeholder success behaviour — replace with real submission (fetch) if desired
+            status.textContent = 'Thank you for your message. I will get back to you soon.';
+            status.style.color = '#0a0';
+            form.reset();
+            // focus success message for screen readers
+            status.focus?.();
+        });
+    </script>
+</body>
+</html>
