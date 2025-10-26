@@ -101,6 +101,7 @@
         position: relative;
         z-index: 1;
         opacity: 0;
+        -webkit-animation: fadeInUp 1.2s ease forwards;
         animation: fadeInUp 1.2s ease forwards;
     }
 
@@ -131,28 +132,62 @@
         position: absolute;
         bottom: 40px;
         left: 50%;
+        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
         font-size: 0.8rem;
         letter-spacing: 2px;
         text-transform: uppercase;
         color: #666;
+        -webkit-animation: bounce 2s infinite;
         animation: bounce 2s infinite;
+    }
+
+    @-webkit-keyframes fadeInUp {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
     }
 
     @keyframes fadeInUp {
         from {
             opacity: 0;
+            -webkit-transform: translateY(40px);
             transform: translateY(40px);
         }
         to {
             opacity: 1;
+            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
     }
 
+    @-webkit-keyframes bounce {
+        0%, 100% { 
+            -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+        }
+        50% { 
+            -webkit-transform: translateX(-50%) translateY(-10px);
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+
     @keyframes bounce {
-        0%, 100% { transform: translateX(-50%) translateY(0); }
-        50% { transform: translateX(-50%) translateY(-10px); }
+        0%, 100% { 
+            -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+        }
+        50% { 
+            -webkit-transform: translateX(-50%) translateY(-10px);
+            transform: translateX(-50%) translateY(-10px);
+        }
     }
 
     /* Sections */
@@ -161,12 +196,15 @@
         margin: 0 auto;
         padding: 120px 60px;
         opacity: 0;
+        -webkit-transform: translateY(30px);
         transform: translateY(30px);
+        -webkit-transition: all 0.8s ease;
         transition: all 0.8s ease;
     }
 
     section.visible {
         opacity: 1;
+        -webkit-transform: translateY(0);
         transform: translateY(0);
     }
 
@@ -194,10 +232,12 @@
         background: #f5f5f5;
         position: relative;
         overflow: hidden;
+        -webkit-transition: transform 0.6s ease;
         transition: transform 0.6s ease;
     }
 
     .profile-img:hover {
+        -webkit-transform: scale(1.02);
         transform: scale(1.02);
     }
 
@@ -209,6 +249,7 @@
         width: 100%;
         height: 100%;
         background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        -webkit-transition: left 0.6s ease;
         transition: left 0.6s ease;
     }
 
@@ -266,6 +307,7 @@
         background: #fff;
         padding: 3rem;
         border: 1px solid #e5e5e5;
+        -webkit-transition: all 0.4s ease;
         transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
@@ -279,6 +321,7 @@
         width: 100%;
         height: 100%;
         background: #000;
+        -webkit-transition: left 0.4s ease;
         transition: left 0.4s ease;
         z-index: 0;
     }
@@ -295,6 +338,7 @@
     .skill-card p {
         position: relative;
         z-index: 1;
+        -webkit-transition: color 0.4s ease;
         transition: color 0.4s ease;
     }
 
@@ -362,6 +406,7 @@
         width: 100%;
         height: 500px;
         background: #e5e5e5;
+        -webkit-transition: transform 0.6s ease;
         transition: transform 0.6s ease;
         display: flex;
         align-items: center;
@@ -371,6 +416,7 @@
     }
 
     .project-card:hover .project-img {
+        -webkit-transform: scale(1.05);
         transform: scale(1.05);
     }
 
@@ -503,20 +549,30 @@
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.95);
+        -webkit-animation: fadeIn 0.3s ease;
         animation: fadeIn 0.3s ease;
     }
 
     .video-modal.active {
         display: flex;
+        display: -webkit-flex;
         justify-content: center;
+        -webkit-justify-content: center;
         align-items: center;
+        -webkit-align-items: center;
     }
 
     .video-modal-content {
         position: relative;
         width: 90%;
         max-width: 1200px;
+        -webkit-animation: slideIn 0.4s ease;
         animation: slideIn 0.4s ease;
+    }
+
+    @-webkit-keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
     @keyframes fadeIn {
@@ -524,13 +580,28 @@
         to { opacity: 1; }
     }
 
-    @keyframes slideIn {
+    @-webkit-keyframes slideIn {
         from { 
             opacity: 0;
+            -webkit-transform: translateY(50px);
             transform: translateY(50px);
         }
         to { 
             opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideIn {
+        from { 
+            opacity: 0;
+            -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+        }
+        to { 
+            opacity: 1;
+            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
     }
@@ -543,6 +614,7 @@
         font-size: 40px;
         font-weight: 300;
         cursor: pointer;
+        -webkit-transition: color 0.3s ease;
         transition: color 0.3s ease;
     }
 
@@ -869,10 +941,16 @@
             'video3': 'ZGYZ5iq2X9Q'
         };
         
-        // Set iframe source with autoplay
-        iframe.src = `https://www.youtube.com/embed/${videos[videoId]}?autoplay=1&rel=0&modestbranding=1`;
+        // Set iframe source - removed autoplay for Safari compatibility
+        // Video will play when user clicks the play button
+        iframe.src = `https://www.youtube.com/embed/${videos[videoId]}?rel=0&modestbranding=1`;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // For iOS Safari - ensure modal is visible
+        setTimeout(function() {
+            modal.style.display = 'flex';
+        }, 10);
     }
 
     function closeVideoModal() {
@@ -882,6 +960,11 @@
         modal.classList.remove('active');
         iframe.src = ''; // Stop video playback
         document.body.style.overflow = 'auto';
+        
+        // Small delay for smooth animation
+        setTimeout(function() {
+            modal.style.display = 'none';
+        }, 300);
     }
 
     // Close modal on Escape key
