@@ -1,570 +1,1045 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nitin Kumar - Creative Professional</title>
-  <meta name="description" content="Nitin Kumar — Creative Designer & Video Editor based in Greater Noida, India. UI/UX, Graphic Design, Motion Design, Video Editing, Colour Grading." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitin Kumar - Creative Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    /* Reset & base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html,body { height: 100%; }
+```
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #000;
-      background-color: #fff;
-      overflow-x: hidden;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: #000;
+        background-color: #fff;
+        overflow-x: hidden;
     }
 
-    /* Header / Nav */
-    header { position: fixed; inset: 0 0 auto 0; z-index: 1000; width: 100%; }
+    /* Navigation */
     nav {
-      background: #fff;
-      padding: 1.5rem 3rem;
-      border-bottom: 1px solid #e5e5e5;
-      transition: all 0.3s ease;
+        background: #fff;
+        padding: 1.5rem 3rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #e5e5e5;
+        transition: all 0.3s ease;
     }
-    nav.scrolled { padding: 1rem 3rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    nav ul { list-style: none; display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; }
-    nav a {
-      color:#000; text-decoration:none; font-weight:400; font-size:0.9rem;
-      letter-spacing:1px; text-transform:uppercase; transition: all 0.3s ease; position:relative;
-    }
-    nav a::after {
-      content: ''; position:absolute; bottom:-5px; left:0; width:0; height:1px; background:#000; transition:width 0.3s ease;
-    }
-    nav a:hover::after { width:100%; }
 
-    /* Hero */
+    nav.scrolled {
+        padding: 1rem 3rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    nav a {
+        color: #000;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #000;
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    /* Hero Section */
     .hero {
-      height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
-      text-align:center; background:#fff; position:relative; overflow:hidden; padding-top:72px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
     }
+
     .hero-bg {
-      position:absolute; inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f5f5" width="1200" height="800"/></svg>');
-      background-size:cover; background-position:center; z-index:0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%),
+                    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f5f5" width="1200" height="800"/></svg>');
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
     }
-    .hero-content { position:relative; z-index:1; opacity:0; animation:fadeInUp 1.2s ease forwards; }
-    .hero h1 { font-size:4.5rem; font-weight:300; margin-bottom:1rem; letter-spacing:3px; color:#000; }
-    .hero p { font-size:1.1rem; letter-spacing:2px; text-transform:uppercase; color:#666; font-weight:300; margin-bottom:0.5rem; }
-    .hero .location { font-size:0.9rem; color:#999; letter-spacing:1px; }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        -webkit-animation: fadeInUp 1.2s ease forwards;
+        animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+        letter-spacing: 3px;
+        color: #000;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #666;
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero .location {
+        font-size: 0.9rem;
+        color: #999;
+        letter-spacing: 1px;
+    }
 
     .scroll-indicator {
-      position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
-      font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; color:#666; animation:bounce 2s infinite;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #666;
+        -webkit-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+    }
+
+    @-webkit-keyframes fadeInUp {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
     }
 
     @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); }
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
     }
+
+    @-webkit-keyframes bounce {
+        0%, 100% { 
+            -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+        }
+        50% { 
+            -webkit-transform: translateX(-50%) translateY(-10px);
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+
     @keyframes bounce {
-      0%,100% { transform:translateX(-50%) translateY(0); } 50% { transform:translateX(-50%) translateY(-10px); }
+        0%, 100% { 
+            -webkit-transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0);
+        }
+        50% { 
+            -webkit-transform: translateX(-50%) translateY(-10px);
+            transform: translateX(-50%) translateY(-10px);
+        }
     }
 
     /* Sections */
-    main { display:block; }
     section {
-      max-width:1400px; margin:0 auto; padding:120px 60px; opacity:0; transform:translateY(30px);
-      transition:all 0.8s ease;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 120px 60px;
+        opacity: 0;
+        -webkit-transform: translateY(30px);
+        transform: translateY(30px);
+        -webkit-transition: all 0.8s ease;
+        transition: all 0.8s ease;
     }
-    section.visible { opacity:1; transform:translateY(0); }
-    section h2 { font-size:2.5rem; margin-bottom:3rem; text-align:center; color:#000; font-weight:300; letter-spacing:3px; text-transform:uppercase; }
 
-    /* About */
-    .about-content { display:grid; grid-template-columns:1fr 1.5fr; gap:5rem; align-items:center; }
+    section.visible {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: #000;
+        font-weight: 300;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+    }
+
+    /* About Section */
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 5rem;
+        align-items: center;
+    }
+
     .profile-img {
-      width:100%; height:500px; background:#f5f5f5; position:relative; overflow:hidden; transition:transform 0.6s ease;
-      display:flex; align-items:center; justify-content:center;
+        width: 100%;
+        height: 500px;
+        background: #f5f5f5;
+        position: relative;
+        overflow: hidden;
+        -webkit-transition: transform 0.6s ease;
+        transition: transform 0.6s ease;
     }
-    .profile-img:hover { transform:scale(1.02); }
+
+    .profile-img:hover {
+        -webkit-transform: scale(1.02);
+        transform: scale(1.02);
+    }
+
     .profile-img::before {
-      content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
-      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition:left 0.6s ease;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        -webkit-transition: left 0.6s ease;
+        transition: left 0.6s ease;
     }
-    .profile-img:hover::before { left:100%; }
-    .profile-placeholder { font-size:6rem; color:#ccc; }
-    .about-text p { font-size:1rem; line-height:2; color:#666; margin-bottom:1.5rem; font-weight:300; }
-    .info-highlight { background:#f5f5f5; padding:1.5rem; margin-top:2rem; border-left:3px solid #000; }
-    .info-highlight p { margin-bottom:0.5rem; font-size:0.95rem; }
-    .info-highlight strong { color:#000; font-weight:500; }
 
-    /* Skills */
-    #skills { background:#f5f5f5; }
-    .skills-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:0; }
+    .profile-img:hover::before {
+        left: 100%;
+    }
+
+    .profile-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+        color: #ccc;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        line-height: 2;
+        color: #666;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+    }
+
+    .info-highlight {
+        background: #f5f5f5;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        border-left: 3px solid #000;
+    }
+
+    .info-highlight p {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .info-highlight strong {
+        color: #000;
+        font-weight: 500;
+    }
+
+    /* Skills Section */
+    #skills {
+        background: #f5f5f5;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 0;
+    }
+
     .skill-card {
-      background:#fff; padding:3rem; border:1px solid #e5e5e5; transition:all 0.4s ease; position:relative; overflow:hidden;
+        background: #fff;
+        padding: 3rem;
+        border: 1px solid #e5e5e5;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
     }
+
     .skill-card::before {
-      content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:#000; transition:left 0.4s ease; z-index:0;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        -webkit-transition: left 0.4s ease;
+        transition: left 0.4s ease;
+        z-index: 0;
     }
-    .skill-card:hover::before { left:0; }
-    .skill-card:hover { border-color:#000; }
-    .skill-card h3, .skill-card p { position:relative; z-index:1; transition: color 0.4s ease; }
-    .skill-card:hover h3, .skill-card:hover p { color:#fff; }
-    .skill-card h3 { font-size:1.2rem; margin-bottom:1rem; font-weight:400; letter-spacing:1px; text-transform:uppercase; }
-    .skill-card p { color:#666; line-height:1.8; font-weight:300; }
 
-    /* Experience */
-    .experience-content { max-width:900px; margin:0 auto; text-align:center; }
-    .experience-highlight { background:#fff; padding:3rem; border:1px solid #e5e5e5; margin-top:2rem; }
-    .experience-highlight h3 { font-size:3rem; font-weight:300; color:#000; margin-bottom:1rem; }
-    .experience-highlight p { font-size:1.1rem; color:#666; letter-spacing:1px; }
+    .skill-card:hover::before {
+        left: 0;
+    }
 
-    /* Projects */
-    .projects-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(400px,1fr)); gap:2rem; }
-    .project-card { position:relative; overflow:hidden; cursor:pointer; background:#f5f5f5; display:flex; flex-direction:column; }
+    .skill-card:hover {
+        border-color: #000;
+    }
+
+    .skill-card h3,
+    .skill-card p {
+        position: relative;
+        z-index: 1;
+        -webkit-transition: color 0.4s ease;
+        transition: color 0.4s ease;
+    }
+
+    .skill-card:hover h3,
+    .skill-card:hover p {
+        color: #fff;
+    }
+
+    .skill-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .skill-card p {
+        color: #666;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+
+    /* Experience Section */
+    .experience-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .experience-highlight {
+        background: #fff;
+        padding: 3rem;
+        border: 1px solid #e5e5e5;
+        margin-top: 2rem;
+    }
+
+    .experience-highlight h3 {
+        font-size: 3rem;
+        font-weight: 300;
+        color: #000;
+        margin-bottom: 1rem;
+    }
+
+    .experience-highlight p {
+        font-size: 1.1rem;
+        color: #666;
+        letter-spacing: 1px;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+
+    .project-card {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        background: #f5f5f5;
+    }
+
     .project-img {
-      width:100%; height:500px; display:flex; align-items:center; justify-content:center; font-size:4rem; color:#ccc;
-      background-size:cover; background-position:center; position:relative; transition:transform 0.6s ease;
+        width: 100%;
+        height: 500px;
+        background: #e5e5e5;
+        -webkit-transition: transform 0.6s ease;
+        transition: transform 0.6s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: #ccc;
+        background-size: cover;
+        background-position: center;
+        position: relative;
     }
+
     .project-img::after {
-      content:''; position:absolute; inset:0; background:rgba(0,0,0,0); transition:background 0.3s ease;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        -webkit-transition: background 0.3s ease;
+        transition: background 0.3s ease;
     }
-    .project-card:hover .project-img { transform:scale(1.05); }
-    .project-card:hover .project-img::after { background:rgba(0,0,0,0.3); }
 
-    .play-btn {
-      position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-      width:80px; height:80px; background:rgba(255,0,0,0.9); border-radius:50%; display:flex; align-items:center; justify-content:center;
-      z-index:2; border: none; cursor:pointer; color:#fff; transition:transform .3s ease, background .3s ease;
+    .project-card:hover .project-img {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
     }
-    .play-btn:focus { outline:3px solid #fff; box-shadow:0 0 0 4px rgba(255,0,0,0.15); }
-    .play-btn::before {
-      content:''; width:0; height:0; border-left:25px solid #fff; border-top:15px solid transparent; border-bottom:15px solid transparent; margin-left:5px;
-      display:inline-block;
+
+    .project-card:hover .project-img::after {
+        background: rgba(0, 0, 0, 0.3);
     }
-    .project-card:hover .play-btn { transform:translate(-50%,-50%) scale(1.1); background:rgba(255,0,0,1); }
 
-    .project-info { padding:2rem; background:#fff; border-top:1px solid #e5e5e5; }
-
-    /* Contact */
-    #contact { background:#f5f5f5; }
-    .contact-form { max-width:700px; margin:0 auto; }
-    .contact-info { text-align:center; margin-bottom:3rem; padding:2rem; background:#fff; border:1px solid #e5e5e5; }
-    .contact-info p { font-size:1rem; color:#666; margin-bottom:0.8rem; letter-spacing:1px; }
-    .contact-info a { color:#000; text-decoration:none; transition:color 0.3s ease; }
-    .contact-info a:hover { color:#666; }
-
-    .form-group { margin-bottom:2rem; }
-    .form-group label { display:block; margin-bottom:0.8rem; font-size:0.9rem; letter-spacing:1px; text-transform:uppercase; font-weight:400; }
-    .form-group input, .form-group textarea {
-      width:100%; padding:1rem; border:none; border-bottom:1px solid #e5e5e5; background:transparent; font-size:1rem; font-family:inherit;
-      transition:border-color 0.3s ease;
+    .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 0, 0, 0.9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
     }
-    .form-group input:focus, .form-group textarea:focus { outline:none; border-bottom-color:#000; }
-    .form-group textarea { resize:vertical; min-height:150px; }
+
+    .play-icon::before {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 25px solid #fff;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        margin-left: 5px;
+    }
+
+    .project-card:hover .play-icon {
+        -webkit-transform: translate(-50%, -50%) scale(1.1);
+        transform: translate(-50%, -50%) scale(1.1);
+        background: rgba(255, 0, 0, 1);
+    }
+
+    .project-info {
+        padding: 2rem;
+        background: #fff;
+        border-top: 1px solid #e5e5e5;
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .project-info p {
+        color: #666;
+        line-height: 1.8;
+        font-weight: 300;
+    }
+
+    /* Contact Form */
+    #contact {
+        background: #f5f5f5;
+    }
+
+    .contact-form {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: #fff;
+        border: 1px solid #e5e5e5;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 0.8rem;
+        letter-spacing: 1px;
+    }
+
+    .contact-info a {
+        color: #000;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+        color: #666;
+    }
+
+    .form-group {
+        margin-bottom: 2rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.8rem;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-bottom: 1px solid #e5e5e5;
+        background: transparent;
+        font-size: 1rem;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-bottom-color: #000;
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
 
     .submit-btn {
-      background:#000; color:#fff; padding:1.2rem 4rem; border:none; font-size:0.9rem; letter-spacing:2px; text-transform:uppercase;
-      cursor:pointer; transition:all 0.3s ease; font-weight:400;
+        background: #000;
+        color: #fff;
+        padding: 1.2rem 4rem;
+        border: none;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 400;
     }
-    .submit-btn:hover { background:#333; transform:translateY(-2px); }
+
+    .submit-btn:hover {
+        background: #333;
+        transform: translateY(-2px);
+    }
 
     /* Footer */
-    footer { background:#000; color:#fff; text-align:center; padding:3rem; font-size:0.85rem; letter-spacing:1px; }
+    footer {
+        background: #000;
+        color: #fff;
+        text-align: center;
+        padding: 3rem;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
 
     /* Video Modal */
-    .video-modal { display:none; position:fixed; z-index:10000; inset:0; background-color:rgba(0,0,0,0.95); align-items:center; justify-content:center; }
-    .video-modal.active { display:flex; }
-    .video-modal-content { position:relative; width:90%; max-width:1200px; animation:slideIn 0.4s ease; }
-    @keyframes slideIn {
-      from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:translateY(0); }
+    .video-modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        -webkit-animation: fadeIn 0.3s ease;
+        animation: fadeIn 0.3s ease;
     }
-    .close-modal {
-      position:absolute; top:-40px; right:0; color:#fff; font-size:40px; font-weight:300; cursor:pointer; background:transparent; border:none;
-      transition:color 0.3s ease;
-    }
-    .close-modal:hover { color:#ccc; }
-    .video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#000; }
-    .video-container iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
 
-    /* Toast */
-    .toast {
-      position: fixed; right: 1rem; bottom: 1rem; background: #111; color: #fff; padding: 0.85rem 1rem; border-radius:6px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3); opacity:0; transform:translateY(12px); transition:all .25s ease; z-index:11000;
+    .video-modal.active {
+        display: flex;
+        display: -webkit-flex;
+        justify-content: center;
+        -webkit-justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
     }
-    .toast.show { opacity:1; transform:translateY(0); }
+
+    .video-modal-content {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        -webkit-animation: slideIn 0.4s ease;
+        animation: slideIn 0.4s ease;
+    }
+
+    @-webkit-keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @-webkit-keyframes slideIn {
+        from { 
+            opacity: 0;
+            -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+        }
+        to { 
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideIn {
+        from { 
+            opacity: 0;
+            -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+        }
+        to { 
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    .close-modal {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        color: #fff;
+        font-size: 40px;
+        font-weight: 300;
+        cursor: pointer;
+        -webkit-transition: color 0.3s ease;
+        transition: color 0.3s ease;
+    }
+
+    .close-modal:hover {
+        color: #ccc;
+    }
+
+    .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+        overflow: hidden;
+        background: #000;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
     /* Responsive */
-    @media (max-width:968px) {
-      .hero h1 { font-size:3rem; }
-      .about-content { grid-template-columns:1fr; }
-      nav ul { gap:1.5rem; }
-      section { padding:80px 30px; }
-      .projects-grid { grid-template-columns:1fr; }
-      nav { padding:1.5rem 1.5rem; }
-      .profile-img { height:400px; }
-      .project-img { height:360px; }
+    @media (max-width: 968px) {
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .about-content {
+            grid-template-columns: 1fr;
+        }
+
+        nav ul {
+            gap: 1.5rem;
+        }
+
+        section {
+            padding: 80px 30px;
+        }
+
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+
+        nav {
+            padding: 1.5rem 1.5rem;
+        }
     }
-    @media (max-width:600px) {
-      .hero h1 { font-size:2rem; letter-spacing:2px; }
-      nav ul { gap:1rem; }
-      nav a { font-size:0.75rem; }
-      .profile-img { height:300px; }
-      .project-img { height:260px; }
+
+    @media (max-width: 600px) {
+        .hero h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            font-size: 0.75rem;
+        }
     }
-  </style>
+</style>
+```
+
 </head>
 <body>
-  <header>
-    <nav id="navbar" aria-label="Primary navigation">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Expertise</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Expertise</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <!-- Hero -->
-  <main id="mainContent">
-    <section class="hero" id="home" tabindex="-1" aria-label="Intro">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-content">
+```
+<!-- Hero Section -->
+<div class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
         <h1>NITIN KUMAR</h1>
         <p>Creative Designer & Video Editor</p>
         <p class="location">Greater Noida, India</p>
-      </div>
-      <div class="scroll-indicator" aria-hidden="true">Scroll Down</div>
-    </section>
+    </div>
+    <div class="scroll-indicator">Scroll Down</div>
+</div>
 
-    <!-- About -->
-    <section id="about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About</h2>
-      <div class="about-content">
-        <div class="profile-img" role="img" aria-label="Profile placeholder of Nitin Kumar">
-          <div class="profile-placeholder" aria-hidden="false">👤</div>
+<!-- About Section -->
+<section id="about">
+    <h2>About</h2>
+    <div class="about-content">
+        <div class="profile-img">
+            <div class="profile-placeholder">👤</div>
         </div>
         <div class="about-text">
-          <p>I'm Nitin Kumar, a 19-year-old creative professional based in Greater Noida with a passion for visual storytelling and design excellence. With 2 years of hands-on experience, I've developed expertise across multiple creative disciplines.</p>
-          <p>My journey in the creative industry has equipped me with comprehensive skills in graphics, UI/UX design, motion design, and video editing. I bring a unique blend of technical proficiency and artistic vision to every project, ensuring that each creation is not just visually stunning but also functionally effective.</p>
-          <p>From crafting intuitive user interfaces to color grading cinematic footage, I approach each project with dedication and attention to detail. My goal is to create work that resonates with audiences and delivers impactful results.</p>
-
-          <div class="info-highlight" aria-hidden="false">
-            <p><strong>Age:</strong> 19 Years</p>
-            <p><strong>Location:</strong> Greater Noida, India</p>
-            <p><strong>Experience:</strong> 2 Years</p>
-            <p><strong>Email:</strong> <a href="mailto:nitineditor232@gmail.com">nitineditor232@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+919411906171">+91 9411906171</a></p>
-          </div>
+            <p>
+                I'm Nitin Kumar, a 19-year-old creative professional based in Greater Noida with a passion 
+                for visual storytelling and design excellence. With 2 years of hands-on experience, I've 
+                developed expertise across multiple creative disciplines.
+            </p>
+            <p>
+                My journey in the creative industry has equipped me with comprehensive skills in graphics, 
+                UI/UX design, motion design, and video editing. I bring a unique blend of technical 
+                proficiency and artistic vision to every project, ensuring that each creation is not just 
+                visually stunning but also functionally effective.
+            </p>
+            <p>
+                From crafting intuitive user interfaces to color grading cinematic footage, I approach 
+                each project with dedication and attention to detail. My goal is to create work that 
+                resonates with audiences and delivers impactful results.
+            </p>
+            <div class="info-highlight">
+                <p><strong>Age:</strong> 19 Years</p>
+                <p><strong>Location:</strong> Greater Noida, India</p>
+                <p><strong>Experience:</strong> 2 Years</p>
+                <p><strong>Email:</strong> nitineditor232@gmail.com</p>
+                <p><strong>Phone:</strong> +91 9411906171</p>
+            </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Expertise</h2>
-      <div class="skills-grid" role="list">
-        <article class="skill-card" role="listitem" aria-label="UI/UX Design">
-          <h3>UI/UX Design</h3>
-          <p>Creating intuitive, user-centered interfaces with industry-level design standards and modern aesthetics.</p>
-        </article>
-        <article class="skill-card" role="listitem" aria-label="Graphic Design">
-          <h3>Graphic Design</h3>
-          <p>Crafting compelling visual identities, branding materials, and creative assets with professional polish.</p>
-        </article>
-        <article class="skill-card" role="listitem" aria-label="Motion Design">
-          <h3>Motion Design</h3>
-          <p>Bringing designs to life with dynamic animations and engaging motion graphics that captivate audiences.</p>
-        </article>
-        <article class="skill-card" role="listitem" aria-label="Video Editing">
-          <h3>Video Editing</h3>
-          <p>Expert video editing with advanced techniques including color grading and seamless post-production workflows.</p>
-        </article>
-        <article class="skill-card" role="listitem" aria-label="Colour Grading">
-          <h3>Colour Grading</h3>
-          <p>Professional color correction and grading to achieve cinematic looks and consistent visual storytelling.</p>
-        </article>
-        <article class="skill-card" role="listitem" aria-label="Web Editing">
-          <h3>Web Editing</h3>
-          <p>Creating and optimizing digital content for web platforms with attention to performance and user experience.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading">Experience</h2>
-      <div class="experience-content">
-        <p style="font-size:1.1rem; color:#666; line-height:2;">
-          With 2 years of professional experience in the creative industry, I've worked on diverse projects spanning UI/UX design, graphic design, motion graphics, and video editing. My journey has allowed me to collaborate with clients and deliver high-quality creative solutions that meet industry standards.
-        </p>
-        <div class="experience-highlight" aria-hidden="false">
-          <h3>2+</h3>
-          <p>YEARS OF CREATIVE EXPERIENCE</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Selected Work</h2>
-      <div class="projects-grid">
-        <!-- Each video item uses a button with data-video for accessibility and to avoid inline onclick -->
-        <article class="project-card" aria-label="Video Editing - Project 1">
-          <div class="project-img" style="background-image:url('https://img.youtube.com/vi/yS_KAfkAy7E/maxresdefault.jpg');" aria-hidden="true">
-            <button class="play-btn" data-video="yS_KAfkAy7E" aria-label="Play Video: Video Editing - Project 1"></button>
-          </div>
-          <div class="project-info">
-            <h3>Video Editing - Project 1</h3>
-            <p>Professional video editing showcase with advanced techniques. Click to watch.</p>
-          </div>
-        </article>
-
-        <article class="project-card" aria-label="Video Editing - Project 2">
-          <div class="project-img" style="background-image:url('https://img.youtube.com/vi/SjUdL0KZTd0/maxresdefault.jpg');" aria-hidden="true">
-            <button class="play-btn" data-video="SjUdL0KZTd0" aria-label="Play Video: Video Editing - Project 2"></button>
-          </div>
-          <div class="project-info">
-            <h3>Video Editing - Project 2</h3>
-            <p>Creative storytelling with seamless editing and color grading. Click to watch.</p>
-          </div>
-        </article>
-
-        <article class="project-card" aria-label="Video Editing - Project 3">
-          <div class="project-img" style="background-image:url('https://img.youtube.com/vi/ZGYZ5iq2X9Q/maxresdefault.jpg');" aria-hidden="true">
-            <button class="play-btn" data-video="ZGYZ5iq2X9Q" aria-label="Play Video: Video Editing - Project 3"></button>
-          </div>
-          <div class="project-info">
-            <h3>Video Editing - Project 3</h3>
-            <p>Dynamic editing with motion graphics integration. Click to watch.</p>
-          </div>
-        </article>
-
-        <article class="project-card" aria-label="UI/UX Design project">
-          <div class="project-img" role="img" aria-label="UI/UX design preview">🎨</div>
-          <div class="project-info">
-            <h3>UI/UX Design</h3>
-            <p>Comprehensive user interface design with focus on user experience and modern design principles.</p>
-          </div>
-        </article>
-
-        <article class="project-card" aria-label="Motion Design project">
-          <div class="project-img" role="img" aria-label="Motion design preview">✨</div>
-          <div class="project-info">
-            <h3>Motion Design</h3>
-            <p>Dynamic motion graphics and animations that bring concepts to life with creative flair.</p>
-          </div>
-        </article>
-
-        <article class="project-card" aria-label="Graphic Design project">
-          <div class="project-img" role="img" aria-label="Graphic design preview">🎯</div>
-          <div class="project-info">
-            <h3>Graphic Design</h3>
-            <p>Industry-level branding and visual identity design with professional polish.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Video player">
-      <div class="video-modal-content">
-        <button class="close-modal" id="closeModal" aria-label="Close video">&times;</button>
-        <div class="video-container" aria-hidden="false">
-          <iframe id="videoFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Video player"></iframe>
-        </div>
-      </div>
     </div>
+</section>
 
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Get In Touch</h2>
-      <div class="contact-info">
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Expertise</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>UI/UX Design</h3>
+            <p>Creating intuitive, user-centered interfaces with industry-level design standards and modern aesthetics.</p>
+        </div>
+        <div class="skill-card">
+            <h3>Graphic Design</h3>
+            <p>Crafting compelling visual identities, branding materials, and creative assets with professional polish.</p>
+        </div>
+        <div class="skill-card">
+            <h3>Motion Design</h3>
+            <p>Bringing designs to life with dynamic animations and engaging motion graphics that captivate audiences.</p>
+        </div>
+        <div class="skill-card">
+            <h3>Video Editing</h3>
+            <p>Expert video editing with advanced techniques including color grading and seamless post-production workflows.</p>
+        </div>
+        <div class="skill-card">
+            <h3>Colour Grading</h3>
+            <p>Professional color correction and grading to achieve cinematic looks and consistent visual storytelling.</p>
+        </div>
+        <div class="skill-card">
+            <h3>Web Editing</h3>
+            <p>Creating and optimizing digital content for web platforms with attention to performance and user experience.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-content">
+        <p style="font-size: 1.1rem; color: #666; line-height: 2;">
+            With 2 years of professional experience in the creative industry, I've worked on diverse 
+            projects spanning UI/UX design, graphic design, motion graphics, and video editing. My journey 
+            has allowed me to collaborate with clients and deliver high-quality creative solutions that 
+            meet industry standards.
+        </p>
+        <div class="experience-highlight">
+            <h3>2+</h3>
+            <p>YEARS OF CREATIVE EXPERIENCE</p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Selected Work</h2>
+    <div class="projects-grid">
+        <div class="project-card" onclick="openVideoModal('video1')">
+            <div class="project-img" style="background-image: url('https://img.youtube.com/vi/yS_KAfkAy7E/maxresdefault.jpg');">
+                <div class="play-icon"></div>
+            </div>
+            <div class="project-info">
+                <h3>Video Editing - Project 1</h3>
+                <p>Professional video editing showcase with advanced techniques. Click to watch.</p>
+            </div>
+        </div>
+        <div class="project-card" onclick="openVideoModal('video2')">
+            <div class="project-img" style="background-image: url('https://img.youtube.com/vi/SjUdL0KZTd0/maxresdefault.jpg');">
+                <div class="play-icon"></div>
+            </div>
+            <div class="project-info">
+                <h3>Video Editing - Project 2</h3>
+                <p>Creative storytelling with seamless editing and color grading. Click to watch.</p>
+            </div>
+        </div>
+        <div class="project-card" onclick="openVideoModal('video3')">
+            <div class="project-img" style="background-image: url('https://img.youtube.com/vi/ZGYZ5iq2X9Q/maxresdefault.jpg');">
+                <div class="play-icon"></div>
+            </div>
+            <div class="project-info">
+                <h3>Video Editing - Project 3</h3>
+                <p>Dynamic editing with motion graphics integration. Click to watch.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img">🎨</div>
+            <div class="project-info">
+                <h3>UI/UX Design</h3>
+                <p>Comprehensive user interface design with focus on user experience and modern design principles.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img">✨</div>
+            <div class="project-info">
+                <h3>Motion Design</h3>
+                <p>Dynamic motion graphics and animations that bring concepts to life with creative flair.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img">🎯</div>
+            <div class="project-info">
+                <h3>Graphic Design</h3>
+                <p>Industry-level branding and visual identity design with professional polish.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Modal -->
+<div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+        <span class="close-modal" onclick="closeVideoModal()">&times;</span>
+        <div class="video-container">
+            <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Get In Touch</h2>
+    <div class="contact-info">
         <p><strong>EMAIL:</strong> <a href="mailto:nitineditor232@gmail.com">nitineditor232@gmail.com</a></p>
         <p><strong>PHONE:</strong> <a href="tel:+919411906171">+91 9411906171</a></p>
         <p><strong>LOCATION:</strong> Greater Noida, India</p>
-      </div>
-
-      <form class="contact-form" id="contactForm" aria-label="Contact form">
+    </div>
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvgvgppo" method="POST">
         <div class="form-group">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required />
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
         </div>
         <button type="submit" class="submit-btn">Send Message</button>
-      </form>
-    </section>
-  </main>
+    </form>
+</section>
 
-  <footer>
+<!-- Footer -->
+<footer>
     <p>&copy; 2025 Nitin Kumar. All Rights Reserved.</p>
-  </footer>
+</footer>
 
-  <!-- Toast for inline feedback -->
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <script>
-    // Smooth scrolling with guard
+<script>
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // update focus for keyboard users
-          target.setAttribute('tabindex', '-1');
-          target.focus({ preventScroll: true });
-          // remove temporary tabindex after focus
-          target.addEventListener('blur', function onBlur() {
-            target.removeAttribute('tabindex');
-            target.removeEventListener('blur', onBlur);
-          });
-        }
-      });
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
     });
 
     // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
-    });
-
-    // Intersection Observer for fade-in
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, observerOptions);
-    document.querySelectorAll('section').forEach(section => observer.observe(section));
-
-    // Contact form: inline toast (no alert)
-    const contactForm = document.getElementById('contactForm');
-    const toast = document.getElementById('toast');
-    function showToast(message, ms = 3000) {
-      toast.textContent = message;
-      toast.classList.add('show');
-      setTimeout(() => { toast.classList.remove('show'); }, ms);
-    }
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      // Here you could send the data to a server endpoint with fetch()
-      showToast('Thank you for your message. I will get back to you soon.');
-      contactForm.reset();
-    });
-
-    // Video modal accessibility & behavior
-    const modal = document.getElementById('videoModal');
-    const iframe = document.getElementById('videoFrame');
-    const closeModalButton = document.getElementById('closeModal');
-    const mainContent = document.getElementById('mainContent');
-
-    // Store the element that had focus before opening modal to return focus later
-    let previousActiveElement = null;
-    let focusableElements = [];
-    let firstFocusable = null;
-    let lastFocusable = null;
-    let trapListener = null;
-
-    function openVideoModal(videoId) {
-      previousActiveElement = document.activeElement;
-      // Construct YouTube embed src (no autoplay by default to respect user)
-      iframe.src = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      mainContent.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = 'hidden';
-
-      // focus management: focus the close button
-      closeModalButton.focus();
-
-      // find focusable elements within modal
-      focusableElements = modal.querySelectorAll('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])');
-      firstFocusable = focusableElements[0];
-      lastFocusable = focusableElements[focusableElements.length - 1];
-
-      // add keydown listener for Tab trapping
-      trapListener = function (e) {
-        if (e.key === 'Tab') {
-          if (focusableElements.length === 0) {
-            e.preventDefault();
-            return;
-          }
-          if (e.shiftKey && document.activeElement === firstFocusable) {
-            e.preventDefault();
-            lastFocusable.focus();
-          } else if (!e.shiftKey && document.activeElement === lastFocusable) {
-            e.preventDefault();
-            firstFocusable.focus();
-          }
-        } else if (e.key === 'Escape') {
-          closeVideoModal();
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
         }
-      };
-      document.addEventListener('keydown', trapListener);
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Form submission - now handled by Formspree
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Formspree handles the submission automatically
+        // Show a loading state
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Note: Formspree will redirect or show success automatically
+        // The form will be submitted to Formspree's endpoint
+    });
+
+    // Video Modal Functions
+    function openVideoModal(videoId) {
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoFrame');
+        
+        // YouTube video IDs extracted from your links
+        const videos = {
+            'video1': 'yS_KAfkAy7E',
+            'video2': 'SjUdL0KZTd0',
+            'video3': 'ZGYZ5iq2X9Q'
+        };
+        
+        // Set iframe source - removed autoplay for Safari compatibility
+        // Video will play when user clicks the play button
+        iframe.src = `https://www.youtube.com/embed/${videos[videoId]}?rel=0&modestbranding=1`;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // For iOS Safari - ensure modal is visible
+        setTimeout(function() {
+            modal.style.display = 'flex';
+        }, 10);
     }
 
     function closeVideoModal() {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      iframe.src = ''; // stop playback
-      document.body.style.overflow = '';
-      mainContent.removeAttribute('aria-hidden');
-      document.removeEventListener('keydown', trapListener);
-      if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
-        previousActiveElement.focus();
-      }
+        const modal = document.getElementById('videoModal');
+        const iframe = document.getElementById('videoFrame');
+        
+        modal.classList.remove('active');
+        iframe.src = ''; // Stop video playback
+        document.body.style.overflow = 'auto';
+        
+        // Small delay for smooth animation
+        setTimeout(function() {
+            modal.style.display = 'none';
+        }, 300);
     }
 
-    // wire up play buttons — avoid inline onclick attributes
-    document.querySelectorAll('.play-btn').forEach(btn => {
-      btn.addEventListener('click', function (e) {
-        const id = btn.getAttribute('data-video');
-        if (id) openVideoModal(id);
-      });
-      // open on Enter/Space for keyboard (button already handles it)
-    });
-
-    // close modal on click outside content
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) closeVideoModal();
-    });
-    closeModalButton.addEventListener('click', closeVideoModal);
-
-    // ESC is handled inside trapListener; additionally ensure older browsers fallback
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        if (modal.classList.contains('active')) closeVideoModal();
-      }
-    });
-
-    // Accessibility: ensure play buttons are keyboard visible (CSS focus styles exist)
-
-    // Small UX improvement: prevent focus outline removal for keyboard users
-    (function () {
-      const handleFirstTab = (e) => {
-        if (e.key === 'Tab') {
-          document.body.classList.add('user-is-tabbing');
-          window.removeEventListener('keydown', handleFirstTab);
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeVideoModal();
         }
-      };
-      window.addEventListener('keydown', handleFirstTab);
-    })();
+    });
+</script>
+```
 
-    // Ensure anchors with fragment that don't exist do not throw
-    if (window.location.hash) {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
-        // give it focus for accessibility
-        target.setAttribute('tabindex', '-1');
-      }
-    }
-  </script>
 </body>
 </html>
